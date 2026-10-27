@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Conectando con TikTok</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 32rem; margin: 4rem auto; padding: 0 1rem; line-height: 1.5; color: #1a1a1a; }
+  a { color: #0b57d0; }
+</style>
+</head>
+<body>
+<h1>Conectando con TikTok…</h1>
+<p id="msg">Un momento, estamos completando la autorización en tu equipo.</p>
+<p><a href="./">Volver al inicio</a> · <a href="terms.html">Términos</a> · <a href="privacy.html">Privacidad</a></p>
+<script>
+// Reenvía solo code, state y error al servidor local de la app (puerto fijo).
+// El destino es fijo: esta página nunca redirige a otro lugar.
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var out = new URLSearchParams();
+  ["code", "state", "error", "error_description"].forEach(function (k) {
+    if (params.has(k)) out.set(k, params.get(k));
+  });
+  var msg = document.getElementById("msg");
+  if (!out.has("code") && !out.has("error")) {
+    msg.textContent = "Esta página solo se usa al conectar la cuenta de TikTok.";
+    return;
+  }
+  window.location.replace("http://localhost:43828/callback?" + out.toString());
+})();
+</script>
+</body>
+</html>
