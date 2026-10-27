@@ -3,32 +3,61 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tatán Carduar Studio — Documentos legales</title>
+<title>Tatán Carduar Studio — app personal de TikTok</title>
 <style>
   :root { color-scheme: dark; }
-  body { margin:0; background:#0a0e0d; color:#e8efe9; font:16px/1.6 system-ui,Segoe UI,Arial,sans-serif; }
-  main { max-width:720px; margin:0 auto; padding:64px 24px 88px; }
-  h1 { font-size:36px; line-height:1.1; margin:0 0 8px; }
-  p { color:#c9d3cc; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:#0a0e0d; color:#e8efe9; font:16px/1.65 system-ui,Segoe UI,Arial,sans-serif; }
+  main { max-width:820px; margin:0 auto; padding:64px 24px 88px; }
+  h1 { font-size:40px; line-height:1.05; margin:0 0 10px; letter-spacing:-0.5px; }
+  h2 { font-size:20px; margin:36px 0 10px; color:#b6ff3b; }
+  p, li { color:#c9d3cc; }
   a { color:#b6ff3b; }
-  .bar { height:4px; width:72px; background:#b6ff3b; border-radius:2px; margin:20px 0 32px; }
-  ul { padding:0; list-style:none; }
-  li { margin:12px 0; }
-  li a { display:inline-block; padding:12px 18px; border:1px solid #2a352e; border-radius:10px; text-decoration:none; }
-  li a:hover { border-color:#b6ff3b; }
-  .muted { color:#7f8c84; font-size:14px; margin-top:40px; }
+  .bar { height:4px; width:72px; background:#b6ff3b; border-radius:2px; margin:20px 0 30px; }
+  .lead { font-size:18px; color:#e8efe9; max-width:680px; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:18px 0 0; }
+  .card { border:1px solid #223029; border-radius:12px; padding:16px 18px; background:#0e1512; }
+  .card strong { color:#e8efe9; }
+  .steps { counter-reset:step; list-style:none; padding:0; }
+  .steps li { counter-increment:step; margin:10px 0; padding-left:38px; position:relative; }
+  .steps li::before { content:counter(step); position:absolute; left:0; top:0; width:26px; height:26px; border-radius:50%; background:#b6ff3b; color:#0a0e0d; font-weight:700; display:grid; place-items:center; font-size:14px; }
+  .links { margin-top:34px; display:flex; gap:12px; flex-wrap:wrap; }
+  .links a { display:inline-block; padding:12px 18px; border:1px solid #2a352e; border-radius:10px; text-decoration:none; }
+  .links a:hover { border-color:#b6ff3b; }
+  .muted { color:#7f8c84; font-size:14px; margin-top:42px; }
+  @media (max-width:640px){ .grid{grid-template-columns:1fr} h1{font-size:32px} }
 </style>
 </head>
 <body>
 <main>
   <h1>Tatán Carduar Studio</h1>
   <div class="bar"></div>
-  <p>Documentos legales de la aplicación personal para administrar la cuenta de TikTok <strong>@tatancarduar</strong>.</p>
-  <ul>
-    <li><a href="./terms.html">Términos de servicio</a></li>
-    <li><a href="./privacy.html">Política de privacidad</a></li>
-  </ul>
-  <p class="muted">Última actualización: 27 de octubre de 2026.</p>
+  <p class="lead">Herramienta personal de escritorio para administrar la cuenta de TikTok <strong>@tatancarduar</strong>: conectar la cuenta, subir videos al buzón o publicarlos y consultar el perfil y los videos propios.</p>
+
+  <h2>Qué hace</h2>
+  <div class="grid">
+    <div class="card"><strong>Login Kit</strong><br>Autorización OAuth 2.0 de la propia cuenta. Los tokens quedan solo en el equipo del titular.</div>
+    <div class="card"><strong>Content Posting API</strong><br>Subida al buzón/borradores y publicación directa con privacidad configurable (<em>SELF_ONLY</em> por defecto).</div>
+    <div class="card"><strong>Display API</strong><br>Consulta del perfil y de los videos públicos de la propia cuenta.</div>
+    <div class="card"><strong>Sin terceros</strong><br>No accede a cuentas ajenas, no automatiza interacciones y no vende ni comparte datos.</div>
+  </div>
+
+  <h2>Cómo funciona</h2>
+  <ol class="steps">
+    <li>El titular inicia sesión con TikTok y autoriza los permisos solicitados.</li>
+    <li>Elige un video local, escribe el título y define la privacidad.</li>
+    <li>La app sube el video, consulta el estado de la publicación y muestra el resultado.</li>
+  </ol>
+
+  <h2>Privacidad</h2>
+  <p>Los tokens de acceso se guardan localmente en el equipo del titular, fuera de este sitio. El sitio público solo contiene esta descripción y los documentos legales; no recibe datos de usuarios.</p>
+
+  <div class="links">
+    <a href="./terms.html">Términos de servicio</a>
+    <a href="./privacy.html">Política de privacidad</a>
+  </div>
+
+  <p class="muted">Última actualización: 27 de octubre de 2026. Contacto: <a href="https://github.com/tatan22">github.com/tatan22</a>.</p>
 </main>
 </body>
 </html>
